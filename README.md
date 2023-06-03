@@ -30,6 +30,8 @@
 
 - [x] ℹ️ Add TableCellConfigurator features
 
+The library requires a dependency [AppViewUtilits](https://github.com/moslienko/AppViewUtilits/).
+
 ## Example
 
 The example application is the best way to see `TableCellConfigurator` in action. Simply open the `TableCellConfigurator.xcodeproj` and run the `Example` scheme.
@@ -52,7 +54,7 @@ pod 'TableCellConfigurator'
 To integrate TableCellConfigurator into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "ro1and95/TableCellConfigurator"
+github "moslienko/TableCellConfigurator"
 ```
 
 Run `carthage update --use-xcframeworks` to build the framework and drag the built `TableCellConfigurator.xcframework` bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
@@ -63,7 +65,7 @@ To integrate using Apple's [Swift Package Manager](https://swift.org/package-man
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ro1and95/TableCellConfigurator.git", from: "1.0.0")
+    .package(url: "https://github.com/moslienko/TableCellConfigurator.git", from: "1.0.0")
 ]
 ```
 
