@@ -9,11 +9,11 @@
 import Foundation
 
 public enum CellType: CaseIterable {
-    case `default`, dangerTiny, dangerBold, withSwitch, textContent, selectValue, checkmark, datePicker
+    case `default`, actionButton, withSwitch, textContent, selectValue, checkmark, datePicker
     
     public var isAllowLink: Bool {
         switch self {
-        case .default, .dangerTiny, .dangerBold, .selectValue, .checkmark:
+        case .default, .actionButton, .selectValue, .checkmark:
             return true
         case .withSwitch, .datePicker, .textContent:
             return false

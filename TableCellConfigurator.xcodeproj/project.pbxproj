@@ -23,6 +23,7 @@
 		95C23CF12A2C78F6000B4887 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C23CF02A2C78F6000B4887 /* CellType.swift */; };
 		95C23CF42A2C7948000B4887 /* RegularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C23CF32A2C7948000B4887 /* RegularCell.swift */; };
 		95C23CF62A2C794D000B4887 /* RegularCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C23CF52A2C794D000B4887 /* RegularCellModel.swift */; };
+		95D1CE192A5987BC0026A3E1 /* CellActionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D1CE182A5987BC0026A3E1 /* CellActionButtonStyle.swift */; };
 		95E039B32A2B7163002B4416 /* AppViewUtilits in Frameworks */ = {isa = PBXBuildFile; productRef = 95E039B22A2B7163002B4416 /* AppViewUtilits */; };
 		95E039B62A2B72C4002B4416 /* TableCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E039B52A2B72C4002B4416 /* TableCellConfigurator.swift */; };
 /* End PBXBuildFile section */
@@ -102,6 +103,7 @@
 		95C23CF02A2C78F6000B4887 /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		95C23CF32A2C7948000B4887 /* RegularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularCell.swift; sourceTree = "<group>"; };
 		95C23CF52A2C794D000B4887 /* RegularCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularCellModel.swift; sourceTree = "<group>"; };
+		95D1CE182A5987BC0026A3E1 /* CellActionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellActionButtonStyle.swift; sourceTree = "<group>"; };
 		95E039B52A2B72C4002B4416 /* TableCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +268,7 @@
 				95C23CF22A2C7943000B4887 /* RegularCell */,
 				95E039B52A2B72C4002B4416 /* TableCellConfigurator.swift */,
 				95C23CF02A2C78F6000B4887 /* CellType.swift */,
+				95D1CE182A5987BC0026A3E1 /* CellActionButtonStyle.swift */,
 			);
 			path = TableCellConfigurator;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				95C23CF62A2C794D000B4887 /* RegularCellModel.swift in Sources */,
 				95E039B62A2B72C4002B4416 /* TableCellConfigurator.swift in Sources */,
 				95C23CF12A2C78F6000B4887 /* CellType.swift in Sources */,
+				95D1CE192A5987BC0026A3E1 /* CellActionButtonStyle.swift in Sources */,
 				95C23CF42A2C7948000B4887 /* RegularCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

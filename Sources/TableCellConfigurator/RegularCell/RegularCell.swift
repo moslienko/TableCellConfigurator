@@ -55,15 +55,14 @@ public class RegularCell: AppViewTableCell<RegularCellModel> {
         content.secondaryText = cellModel.subtitle
         
         switch cellModel.type {
-        case .dangerTiny, .dangerBold:
+        case .actionButton:
+            let style = cellModel.actionButtonStyle ?? .accent
+            style.applyStyle(for: &content.textProperties)
+            
             self.selectionStyle = .default
-            content.textProperties.color = .systemRed
-            if cellModel.icon == nil {
-                content.textProperties.alignment = .center
-            }
-            content.textProperties.font = .systemFont(ofSize: 17.0, weight: cellModel.type == .dangerTiny ? .regular : .semibold)
             self.accessoryType = .none
             self.accessoryView = nil
+            self.isUserInteractionEnabled = cellModel.isEnabled
         case .withSwitch:
             self.selectionStyle = .none
             let switchView = UISwitch(frame: .zero)
@@ -76,8 +75,9 @@ public class RegularCell: AppViewTableCell<RegularCellModel> {
             self.accessoryView = nil
         case .selectValue:
             self.selectionStyle = .none
-            let arrowIcon = UIImage(systemName: "chevron.up.chevron.down")?.withRenderingMode(.alwaysTemplate).withTintColor(.secondaryLabel)
+            let arrowIcon = UIImage(systemName: "chevron.up.chevron.down")?.withRenderingMode(.alwaysTemplate)
             let arrowIconView = UIImageView(image: arrowIcon)
+            arrowIconView.tintColor = .secondaryLabel
             arrowIconView.frame = CGRect(x: 0, y: 0, width: 10, height: 14)
             self.accessoryView = arrowIconView
         case .checkmark:

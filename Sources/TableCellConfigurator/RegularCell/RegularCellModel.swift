@@ -17,6 +17,7 @@ public class RegularCellModel: AppViewCellIdentifiable {
     let icon: UIImage?
     public let type: CellType
     var style: UITableViewCell.CellStyle
+    var actionButtonStyle: CellActionButtonStyle?
     var accessoryType: UITableViewCell.AccessoryType
     let isEnabled: Bool
     public var action: Callback?
@@ -25,12 +26,13 @@ public class RegularCellModel: AppViewCellIdentifiable {
     var switchChanged: DataCallback<Bool>?
     var dateChanged: DataCallback<Date>?
     
-    public init(title: String, subtitle: String?, icon: UIImage?, type: CellType, style: UITableViewCell.CellStyle, accessoryType: UITableViewCell.AccessoryType = .disclosureIndicator, isEnabled: Bool = true, action: Callback? = nil) {
+    public init(title: String, subtitle: String?, icon: UIImage?, type: CellType, style: UITableViewCell.CellStyle, actionButtonStyle: CellActionButtonStyle? = nil, accessoryType: UITableViewCell.AccessoryType = .disclosureIndicator, isEnabled: Bool = true, action: Callback? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.icon = icon
         self.type = type
         self.style = style
+        self.actionButtonStyle = actionButtonStyle
         self.accessoryType = accessoryType
         self.isEnabled = isEnabled
         self.action = action
@@ -79,6 +81,20 @@ public extension RegularCellModel {
             style: style,
             accessoryType: accessoryType,
             isEnabled: true,
+            action: action
+        )
+    }
+    
+    static func createActionButton(title: String, style: CellActionButtonStyle, isEnabled: Bool, action: Callback?) -> RegularCellModel {
+        RegularCellModel(
+            title: title,
+            subtitle: nil,
+            icon: nil,
+            type: .actionButton,
+            style: .default,
+            actionButtonStyle: style,
+            accessoryType: .none,
+            isEnabled: isEnabled,
             action: action
         )
     }

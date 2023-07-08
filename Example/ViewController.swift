@@ -23,30 +23,30 @@ class ViewController: AppViewController {
     private var selectingValue: String?
     private var isActiveWifi = true
     private var isActiveOption = true
-
+    
     public class var fromXib: ViewController {
         ViewController(nibName: "ViewController", bundle: nil)
     }
     
     override func viewDidLoad() {
         self.view.backgroundColor = .systemBackground
-        self.navigationItem.title = "Table"
+        self.navigationItem.title = "Table cells"
         
         self.tableView.registerCellClass(RegularCell.self)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .singleLine
         self.tableView.backgroundColor = .systemGroupedBackground
-                
+        
         selectingValue = values.first
         reloadData()
     }
     
     override func reloadData() {
-       
+        
         var basicSection: [AppViewCellIdentifiable] = []
         var buttonsSection: [AppViewCellIdentifiable] = []
-
+        
         CellType.allCases.forEach({ type in
             switch type {
             case .default:
@@ -58,7 +58,6 @@ class ViewController: AppViewController {
                     accessoryType: .disclosureIndicator) {
                         
                     }
-                basicSection += [regularModel]
                 
                 let rightSubtitleModel = RegularCellModel.createDefault(
                     title: "iOS Version",
@@ -68,13 +67,33 @@ class ViewController: AppViewController {
                     accessoryType: .none) {
                         
                     }
-                basicSection += [rightSubtitleModel]
-            case .dangerTiny:
-                let model = RegularCellModel(title: "Logout", subtitle: "", icon: nil, type: .dangerTiny, style: .default, action: { [weak self] in
-                })
-                buttonsSection += [model]
-            case .dangerBold:
-                break //section += [model]
+                basicSection += [regularModel, rightSubtitleModel]
+            case .actionButton:
+                let dangerModel = RegularCellModel.createActionButton(
+                    title: "Logout",
+                    style: .danger,
+                    isEnabled: true) {
+                        
+                    }
+                
+                let accentModel = RegularCellModel.createActionButton(
+                    title: "Create new",
+                    style: .accent,
+                    isEnabled: true) {
+                        print("f")
+                    }
+                
+                let customModel = RegularCellModel.createActionButton(
+                    title: "My custom button",
+                    style: .custom(
+                        color: .purple,
+                        textAlignment: .center,
+                        font: .systemFont(ofSize: 21, weight: .bold)
+                    ),
+                    isEnabled: true) {
+                        
+                    }
+                buttonsSection += [dangerModel, accentModel, customModel]
             case .withSwitch:
                 let model = RegularCellModel.createSwitch(
                     title: "Wi-Fi",
@@ -124,6 +143,7 @@ class ViewController: AppViewController {
         
         self.models = [basicSection, buttonsSection]
         self.tableView.reloadData()
+        self.tableView.layoutSubviews()
     }
     
     override func setupView(with state: ViewState) {}
@@ -167,7 +187,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension //44.0
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Regular"
+        case 1:
+            return "Buttons"
+        default:
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        UITableView.automaticDimension
     }
 }
