@@ -59,6 +59,8 @@ class ViewController: AppViewController {
                         
                     }
                 
+                regularModel.options.tintColor = .systemGreen
+
                 let rightSubtitleModel = RegularCellModel.createDefault(
                     title: "iOS Version",
                     subtitle: "14.0 +",

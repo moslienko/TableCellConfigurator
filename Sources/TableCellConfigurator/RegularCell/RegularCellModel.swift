@@ -23,6 +23,9 @@ public class RegularCellModel: AppViewCellIdentifiable {
     public var action: Callback?
     public var contextMenu: UIMenu?
     var date: Date?
+    
+    public var options = RegularCellOptions()
+    
     var switchChanged: DataCallback<Bool>?
     var dateChanged: DataCallback<Date>?
     

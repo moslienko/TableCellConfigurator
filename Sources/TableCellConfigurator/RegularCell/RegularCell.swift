@@ -46,10 +46,10 @@ public class RegularCell: AppViewTableCell<RegularCellModel> {
         }()
         
         content.image = cellModel.icon
-        content.imageProperties.reservedLayoutSize = CGSize(width: 29, height: 29)
-        content.imageToTextPadding = 12
-        content.directionalLayoutMargins = NSDirectionalEdgeInsets(top: cellModel.type == .textContent ? 16 : 0, leading: 0, bottom: cellModel.type == .textContent ? 16 : 0, trailing: 8)
-        self.layoutMargins = UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 16.0)
+        content.imageProperties.reservedLayoutSize = cellModel.options.iconSize
+        content.imageToTextPadding = cellModel.options.imageToTextPadding
+        content.directionalLayoutMargins = NSDirectionalEdgeInsets(top: cellModel.type == .textContent ? cellModel.options.layoutMargins.left : 0, leading: 0, bottom: cellModel.type == .textContent ? cellModel.options.layoutMargins.left : 0, trailing: cellModel.options.layoutMargins.right / 2)
+        self.layoutMargins = cellModel.options.layoutMargins
         
         content.text = cellModel.title
         content.secondaryText = cellModel.subtitle
@@ -101,7 +101,7 @@ public class RegularCell: AppViewTableCell<RegularCellModel> {
             self.accessoryView = nil
         }
         
-        self.tintColor = .systemBlue
+        self.tintColor = cellModel.options.tintColor
         self.contentConfiguration = content
         self.layoutIfNeeded()
         
