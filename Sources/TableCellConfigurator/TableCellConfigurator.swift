@@ -3,7 +3,7 @@
 //  TableCellConfigurator-iOS
 //
 //  Created by Pavel Moslienko on 03.06.2023.
-//  Copyright © 2023 TableCellConfigurator. All rights reserved.
+//  Copyright © 2023 Pavel Moslienko. All rights reserved.
 //
 
 import Foundation

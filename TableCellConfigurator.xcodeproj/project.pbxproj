@@ -15,10 +15,14 @@
 		3D9C431C227461AF000A6585 /* TableCellConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42D722745CDE000A6585 /* TableCellConfiguratorTests.swift */; };
 		3D9C43242274629B000A6585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C43232274629B000A6585 /* AppDelegate.swift */; };
 		3D9C43262274629B000A6585 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C43252274629B000A6585 /* ViewController.swift */; };
-		3D9C432B2274629C000A6585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C432A2274629C000A6585 /* Assets.xcassets */; };
 		3D9C432E2274629C000A6585 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C432C2274629C000A6585 /* LaunchScreen.storyboard */; };
 		3D9C433422746323000A6585 /* TableCellConfigurator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C429022745894000A6585 /* TableCellConfigurator.framework */; };
 		3D9C433522746323000A6585 /* TableCellConfigurator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C429022745894000A6585 /* TableCellConfigurator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9556C9842A5923EA0014C2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C432A2274629C000A6585 /* Assets.xcassets */; };
+		9556C9862A5927330014C2AC /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9556C9852A5927330014C2AC /* ViewController.xib */; };
+		95C23CF12A2C78F6000B4887 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C23CF02A2C78F6000B4887 /* CellType.swift */; };
+		95C23CF42A2C7948000B4887 /* RegularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C23CF32A2C7948000B4887 /* RegularCell.swift */; };
+		95C23CF62A2C794D000B4887 /* RegularCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C23CF52A2C794D000B4887 /* RegularCellModel.swift */; };
 		95E039B32A2B7163002B4416 /* AppViewUtilits in Frameworks */ = {isa = PBXBuildFile; productRef = 95E039B22A2B7163002B4416 /* AppViewUtilits */; };
 		95E039B62A2B72C4002B4416 /* TableCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E039B52A2B72C4002B4416 /* TableCellConfigurator.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +98,10 @@
 		3D9C432A2274629C000A6585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9C432D2274629C000A6585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D9C432F2274629C000A6585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9556C9852A5927330014C2AC /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		95C23CF02A2C78F6000B4887 /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
+		95C23CF32A2C7948000B4887 /* RegularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularCell.swift; sourceTree = "<group>"; };
+		95C23CF52A2C794D000B4887 /* RegularCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularCellModel.swift; sourceTree = "<group>"; };
 		95E039B52A2B72C4002B4416 /* TableCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +235,7 @@
 			children = (
 				3D9C43232274629B000A6585 /* AppDelegate.swift */,
 				3D9C43252274629B000A6585 /* ViewController.swift */,
+				9556C9852A5927330014C2AC /* ViewController.xib */,
 				3D9C4333227462B9000A6585 /* Resources */,
 			);
 			path = Example;
@@ -242,10 +251,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		95C23CF22A2C7943000B4887 /* RegularCell */ = {
+			isa = PBXGroup;
+			children = (
+				95C23CF32A2C7948000B4887 /* RegularCell.swift */,
+				95C23CF52A2C794D000B4887 /* RegularCellModel.swift */,
+			);
+			path = RegularCell;
+			sourceTree = "<group>";
+		};
 		95E039B42A2B7295002B4416 /* TableCellConfigurator */ = {
 			isa = PBXGroup;
 			children = (
+				95C23CF22A2C7943000B4887 /* RegularCell */,
 				95E039B52A2B72C4002B4416 /* TableCellConfigurator.swift */,
+				95C23CF02A2C78F6000B4887 /* CellType.swift */,
 			);
 			path = TableCellConfigurator;
 			sourceTree = "<group>";
@@ -506,6 +526,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9556C9842A5923EA0014C2AC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,8 +576,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9556C9862A5927330014C2AC /* ViewController.xib in Resources */,
 				3D9C432E2274629C000A6585 /* LaunchScreen.storyboard in Resources */,
-				3D9C432B2274629C000A6585 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,7 +663,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95C23CF62A2C794D000B4887 /* RegularCellModel.swift in Sources */,
 				95E039B62A2B72C4002B4416 /* TableCellConfigurator.swift in Sources */,
+				95C23CF12A2C78F6000B4887 /* CellType.swift in Sources */,
+				95C23CF42A2C7948000B4887 /* RegularCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1371,8 +1395,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/moslienko/AppViewUtilits.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

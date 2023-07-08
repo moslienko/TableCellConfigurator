@@ -86,7 +86,7 @@ Contributions are very welcome 🙌
 
 ```
 TableCellConfigurator
-Copyright (c) 2023 TableCellConfigurator 8676976+moslienko@users.noreply.github.com
+Copyright (c) 2023 Pavel Moslienko 8676976+moslienko@users.noreply.github.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
