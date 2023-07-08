@@ -26,7 +26,7 @@ public class RegularCellModel: AppViewCellIdentifiable {
     var switchChanged: DataCallback<Bool>?
     var dateChanged: DataCallback<Date>?
     
-    public init(title: String, subtitle: String?, icon: UIImage?, type: CellType, style: UITableViewCell.CellStyle, actionButtonStyle: CellActionButtonStyle? = nil, accessoryType: UITableViewCell.AccessoryType = .disclosureIndicator, isEnabled: Bool = true, action: Callback? = nil) {
+    public init(title: String, subtitle: String? = nil, icon: UIImage? = nil, type: CellType, style: UITableViewCell.CellStyle = .default, actionButtonStyle: CellActionButtonStyle? = nil, accessoryType: UITableViewCell.AccessoryType = .disclosureIndicator, isEnabled: Bool = true, action: Callback? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.icon = icon
@@ -97,5 +97,17 @@ public extension RegularCellModel {
             isEnabled: isEnabled,
             action: action
         )
+    }
+    
+    static func createSelectValues(title: String, selectingValue: String?, icon: UIImage?, contextMenu: UIMenu) -> RegularCellModel {
+        let model = RegularCellModel(
+            title: title,
+            subtitle: selectingValue,
+            icon: icon,
+            type: .selectValue,
+            style: .default
+        )
+        model.contextMenu = contextMenu
+        return model
     }
 }

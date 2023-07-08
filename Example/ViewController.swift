@@ -104,23 +104,22 @@ class ViewController: AppViewController {
                     }
                 basicSection += [model]
             case .textContent:
-                let model = RegularCellModel(title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.", subtitle: nil, icon: nil, type: .textContent, style: .default, isEnabled: true, action: nil)
+                let model = RegularCellModel(
+                    title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+                    type: .textContent
+                )
                 basicSection += [model]
             case .selectValue:
-                let model = RegularCellModel(
+                let model = RegularCellModel.createSelectValues(
                     title: "Select value",
-                    subtitle: selectingValue,
+                    selectingValue: selectingValue,
                     icon: nil,
-                    type: .selectValue,
-                    style: .default
+                    contextMenu: createMenuForSelectingValues()
                 )
-                model.contextMenu = createMenuForSelectingValues()
                 basicSection += [model]
             case .checkmark:
                 let model = RegularCellModel(
                     title: "Option",
-                    subtitle: nil,
-                    icon: nil,
                     type: .checkmark,
                     style: .default,
                     isEnabled: isActiveOption) {
