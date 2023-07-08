@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by moslienko on 3 июня 2023 г..
-//  Copyright © 2023 TableCellConfigurator. All rights reserved.
+//  Copyright © 2023 Pavel Moslienko. All rights reserved.
 //
 
 import UIKit
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     /// The RootViewController
     var rootViewController: UIViewController {
-        return ViewController()
+        return UINavigationController(rootViewController: ViewController())
     }
 
     /// Application did finish launching with options
