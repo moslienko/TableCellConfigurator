@@ -24,7 +24,7 @@
 The library requires a dependency [AppViewUtilits](https://github.com/moslienko/AppViewUtilits/).
 <br>
 Supported cell types:
-- [x] ℹ️ Default (link) cell
+- [x] ℹ️ Link cell
 - [x] ℹ️ Button cell
 - [x] ℹ️ Switch cell
 - [x] ℹ️ Text content cell
@@ -77,33 +77,35 @@ private var models: [[AppViewCellIdentifiable]] = []
 UITableViewDataSource:
 
 ```swift
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let model = models[safe: indexPath.section]?[safe: indexPath.row] else {
-            return UITableViewCell()
-        }
-        if let model = model as? RegularCellModel {
-            let cell = tableView.dequeueReusableCell(with: RegularCell.self, for: indexPath)
-            cell.cellModel = model
-            return cell
-        } else if let model = model as? InputCellModel {
-            let cell = tableView.dequeueReusableCell(with: InputCell.self, for: indexPath)
-            cell.cellModel = model
-            return cell
-        }
-        
-        return UITableViewCell()
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) - > UITableViewCell {
+   guard let model = models[safe: indexPath.section]?[safe: indexPath.row] else {
+		return UITableViewCell()
     }
+    if let model = model as ? RegularCellModel {
+        let cell = tableView.dequeueReusableCell(with: RegularCell.self,
+            for: indexPath)
+        cell.cellModel = model
+        return cell
+    } else if let model = model as ? InputCellModel {
+        let cell = tableView.dequeueReusableCell(with: InputCell.self,
+            for: indexPath)
+        cell.cellModel = model
+        return cell
+    }
+    
+    return UITableViewCell()
+}
 ```
 Actions on tap:
 
 ```swift
  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cellModel = models[safe: indexPath.section]?[safe: indexPath.row] as? RegularCellModel,
-           cellModel.type.isAllowLink {
-            cellModel.action?()
+    if let cellModel = models[safe: indexPath.section]?[safe: indexPath.row] as ? RegularCellModel,
+        cellModel.type.isAllowLink {
+            cellModel.action ? ()
             tableView.deselectRow(at: indexPath, animated: true)
         }
-    }
+}
 ```
 
 ### Link cell
@@ -124,7 +126,7 @@ Example:
 }
 ```
 
-### Action button
+### Button cell
 ```swift
 static func createActionButton(title: String, style: CellActionButtonStyle, isInteractiveEnabled: Bool, action: Callback?) -> RegularCellModel
 ```
@@ -179,7 +181,7 @@ let model = RegularCellModel(
 ```
 
 
-### Select value cell
+### Select values cell
 Clicking on a cell opens a menu with a list of values.
 
 ```swift
