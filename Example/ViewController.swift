@@ -58,7 +58,6 @@ class ViewController: AppViewController {
                     accessoryType: .disclosureIndicator) {
                         
                     }
-                
                 regularModel.options.tintColor = .systemGreen
 
                 let rightSubtitleModel = RegularCellModel.createDefault(
@@ -74,14 +73,14 @@ class ViewController: AppViewController {
                 let dangerModel = RegularCellModel.createActionButton(
                     title: "Logout",
                     style: .danger,
-                    isEnabled: true) {
+                    isInteractiveEnabled: true) {
                         
                     }
                 
                 let accentModel = RegularCellModel.createActionButton(
                     title: "Create new",
                     style: .accent,
-                    isEnabled: true) {
+                    isInteractiveEnabled: true) {
                         print("f")
                     }
                 
@@ -92,7 +91,7 @@ class ViewController: AppViewController {
                         textAlignment: .center,
                         font: .systemFont(ofSize: 21, weight: .bold)
                     ),
-                    isEnabled: true) {
+                    isInteractiveEnabled: true) {
                         
                     }
                 buttonsSection += [dangerModel, accentModel, customModel]
@@ -100,7 +99,7 @@ class ViewController: AppViewController {
                 let model = RegularCellModel.createSwitch(
                     title: "Wi-Fi",
                     icon: UIImage(systemName: "wifi"),
-                    isEnabled: isActiveWifi) { val in
+                    isOn: isActiveWifi) { val in
                         self.isActiveWifi = val
                         self.reloadData()
                     }
@@ -124,7 +123,7 @@ class ViewController: AppViewController {
                     title: "Option",
                     type: .checkmark,
                     style: .default,
-                    isEnabled: isActiveOption) {
+                    isOn: isActiveOption) {
                         self.isActiveOption.toggle()
                         self.reloadData()
                     }
@@ -132,7 +131,7 @@ class ViewController: AppViewController {
             case .datePicker:
                 let model = RegularCellModel.createDatePicker(
                     title: "Select date",
-                    date: Date(),
+                    date: selectedDate,
                     onChange: { value in
                         self.selectedDate = value
                         self.reloadData()

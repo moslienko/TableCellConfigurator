@@ -19,17 +19,19 @@ public class RegularCellModel: AppViewCellIdentifiable {
     var style: UITableViewCell.CellStyle
     var actionButtonStyle: CellActionButtonStyle?
     var accessoryType: UITableViewCell.AccessoryType
-    let isEnabled: Bool
+    public var isOn: Bool //Switcher
+    public var isInteractiveEnabled: Bool //Allow tap
     public var action: Callback?
     public var contextMenu: UIMenu?
     var date: Date?
     
     public var options = RegularCellOptions()
     
+    //Callbacks
     var switchChanged: DataCallback<Bool>?
     var dateChanged: DataCallback<Date>?
     
-    public init(title: String, subtitle: String? = nil, icon: UIImage? = nil, type: CellType, style: UITableViewCell.CellStyle = .default, actionButtonStyle: CellActionButtonStyle? = nil, accessoryType: UITableViewCell.AccessoryType = .disclosureIndicator, isEnabled: Bool = true, action: Callback? = nil) {
+    public init(title: String, subtitle: String? = nil, icon: UIImage? = nil, type: CellType, style: UITableViewCell.CellStyle = .default, actionButtonStyle: CellActionButtonStyle? = nil, accessoryType: UITableViewCell.AccessoryType = .disclosureIndicator, isOn: Bool = true, isInteractiveEnabled: Bool = true, action: Callback? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.icon = icon
@@ -37,7 +39,8 @@ public class RegularCellModel: AppViewCellIdentifiable {
         self.style = style
         self.actionButtonStyle = actionButtonStyle
         self.accessoryType = accessoryType
-        self.isEnabled = isEnabled
+        self.isOn = isOn
+        self.isInteractiveEnabled = isInteractiveEnabled
         self.action = action
     }
 }
@@ -52,7 +55,6 @@ public extension RegularCellModel {
             type: .datePicker,
             style: .default,
             accessoryType: .none,
-            isEnabled: true,
             action: nil
         )
         model.date = date
@@ -60,7 +62,7 @@ public extension RegularCellModel {
         return model
     }
     
-    static func createSwitch(title: String, icon: UIImage? = nil, isEnabled: Bool, onChange: DataCallback<Bool>?
+    static func createSwitch(title: String, icon: UIImage? = nil, isOn: Bool, onChange: DataCallback<Bool>?
     ) -> RegularCellModel {
         let model = RegularCellModel(
             title: title,
@@ -69,7 +71,7 @@ public extension RegularCellModel {
             type: .withSwitch,
             style: .default,
             accessoryType: .none,
-            isEnabled: isEnabled
+            isOn: isOn
         ) {}
         model.switchChanged = onChange
         return model
@@ -83,12 +85,11 @@ public extension RegularCellModel {
             type: .default,
             style: style,
             accessoryType: accessoryType,
-            isEnabled: true,
             action: action
         )
     }
     
-    static func createActionButton(title: String, style: CellActionButtonStyle, isEnabled: Bool, action: Callback?) -> RegularCellModel {
+    static func createActionButton(title: String, style: CellActionButtonStyle, isInteractiveEnabled: Bool, action: Callback?) -> RegularCellModel {
         RegularCellModel(
             title: title,
             subtitle: nil,
@@ -97,7 +98,7 @@ public extension RegularCellModel {
             style: .default,
             actionButtonStyle: style,
             accessoryType: .none,
-            isEnabled: isEnabled,
+            isInteractiveEnabled: isInteractiveEnabled,
             action: action
         )
     }

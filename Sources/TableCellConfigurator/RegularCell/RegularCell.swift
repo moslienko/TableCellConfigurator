@@ -62,17 +62,19 @@ public class RegularCell: AppViewTableCell<RegularCellModel> {
             self.selectionStyle = .default
             self.accessoryType = .none
             self.accessoryView = nil
-            self.isUserInteractionEnabled = cellModel.isEnabled
+            self.isUserInteractionEnabled = cellModel.isInteractiveEnabled
         case .withSwitch:
             self.selectionStyle = .none
             let switchView = UISwitch(frame: .zero)
-            switchView.setOn(cellModel.isEnabled, animated: true)
+            switchView.setOn(cellModel.isOn, animated: true)
             switchView.addTarget(self, action: #selector(toggleSwitch), for: .valueChanged)
+            switchView.isUserInteractionEnabled = cellModel.isInteractiveEnabled
             self.accessoryView = switchView
         case .textContent:
             self.selectionStyle = .none
             self.accessoryType = .none
             self.accessoryView = nil
+            self.isUserInteractionEnabled = cellModel.isInteractiveEnabled
         case .selectValue:
             self.selectionStyle = .none
             let arrowIcon = UIImage(systemName: "chevron.up.chevron.down")?.withRenderingMode(.alwaysTemplate)
@@ -81,8 +83,9 @@ public class RegularCell: AppViewTableCell<RegularCellModel> {
             arrowIconView.frame = CGRect(x: 0, y: 0, width: 10, height: 14)
             self.accessoryView = arrowIconView
         case .checkmark:
-            self.accessoryType = cellModel.isEnabled ? .checkmark : .none
+            self.accessoryType = cellModel.isOn ? .checkmark : .none
             self.accessoryView = nil
+            self.isUserInteractionEnabled = cellModel.isInteractiveEnabled
         case .datePicker:
             self.selectionStyle = .none
             let datePicker = UIDatePicker()
@@ -94,11 +97,13 @@ public class RegularCell: AppViewTableCell<RegularCellModel> {
                 self.cellModel?.dateChanged?(datePicker.date)
             })
             datePicker.addAction(action, for: .valueChanged)
+            datePicker.isUserInteractionEnabled = cellModel.isInteractiveEnabled
             self.accessoryView = datePicker
         case .default:
             self.selectionStyle = .default
             self.accessoryType = cellModel.accessoryType
             self.accessoryView = nil
+            self.isUserInteractionEnabled = cellModel.isInteractiveEnabled
         }
         
         self.tintColor = cellModel.options.tintColor
@@ -117,6 +122,7 @@ public class RegularCell: AppViewTableCell<RegularCellModel> {
             ])
             button.showsMenuAsPrimaryAction = true
             button.menu = cellModel.contextMenu
+            button.isUserInteractionEnabled = cellModel.isInteractiveEnabled
         default:
             break
         }
