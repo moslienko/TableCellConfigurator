@@ -23,6 +23,7 @@ class ViewController: AppViewController {
     private var selectingValue: String?
     private var isActiveWifi = true
     private var isActiveOption = true
+    private var nameValue: String?
     
     public class var fromXib: ViewController {
         ViewController(nibName: "ViewController", bundle: nil)
@@ -33,6 +34,7 @@ class ViewController: AppViewController {
         self.navigationItem.title = "Table cells"
         
         self.tableView.registerCellClass(RegularCell.self)
+        self.tableView.registerCellClass(InputCell.self)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .singleLine
@@ -59,7 +61,7 @@ class ViewController: AppViewController {
                         
                     }
                 regularModel.options.tintColor = .systemGreen
-
+                
                 let rightSubtitleModel = RegularCellModel.createDefault(
                     title: "iOS Version",
                     subtitle: "14.0 +",
@@ -141,6 +143,18 @@ class ViewController: AppViewController {
             }
         })
         
+        let inputModel = InputCellModel(
+            text: nameValue,
+            placeholder: "What's you name?",
+            isInteractiveEnabled: true,
+            maxLimit: 64,
+            valueChanged: { value in
+                self.nameValue = value
+            }, valueFinishChanged: { value in
+                
+            })
+        basicSection += [inputModel]
+        
         self.models = [basicSection, buttonsSection]
         self.tableView.reloadData()
         self.tableView.layoutSubviews()
@@ -170,13 +184,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let model = models[safe: indexPath.section]?[safe: indexPath.row]else {
+        guard let model = models[safe: indexPath.section]?[safe: indexPath.row] else {
             return UITableViewCell()
         }
-        let cell = tableView.dequeueReusableCell(with: RegularCell.self, for: indexPath)
-        cell.cellModel = model as? RegularCellModel
+        if let model = model as? RegularCellModel {
+            let cell = tableView.dequeueReusableCell(with: RegularCell.self, for: indexPath)
+            cell.cellModel = model
+            
+            return cell
+        } else if let model = model as? InputCellModel {
+            let cell = tableView.dequeueReusableCell(with: InputCell.self, for: indexPath)
+            cell.cellModel = model
+            
+            return cell
+        }
         
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
