@@ -32,6 +32,7 @@ class ViewController: AppViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = .systemBackground
         self.navigationItem.title = "Table cells"
+        self.initAppViewController()
         
         self.tableView.registerCellClass(RegularCell.self)
         self.tableView.registerCellClass(InputCell.self)
@@ -65,7 +66,7 @@ class ViewController: AppViewController {
                 let rightSubtitleModel = RegularCellModel.createDefault(
                     title: "iOS Version",
                     subtitle: "14.0 +",
-                    icon: UIImage(systemName: "apple.logo"),
+                    icon: UIImage(named: "ios_logo_wall"),
                     style: .value1,
                     accessoryType: .none) {
                         
