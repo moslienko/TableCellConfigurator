@@ -84,7 +84,7 @@ class ViewController: AppViewController {
                     title: "Create new",
                     style: .accent,
                     isInteractiveEnabled: true) {
-                        print("f")
+                       
                     }
                 
                 let customModel = RegularCellModel.createActionButton(
@@ -153,7 +153,8 @@ class ViewController: AppViewController {
                 self.nameValue = value
             }, valueFinishChanged: { value in
                 
-            })
+            }
+        )
         basicSection += [inputModel]
         
         self.models = [basicSection, buttonsSection]

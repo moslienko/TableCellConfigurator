@@ -14,13 +14,13 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/moslienko/AppViewUtilits.git", from: "1.2.4")
+        .package(url: "https://github.com/moslienko/AppViewUtilits.git", from: "1.2.5")
     ],
     targets: [
         .target(
             name: "TableCellConfigurator",
             dependencies: [
-                .package(url: "https://github.com/moslienko/AppViewUtilits.git", from: "1.2.4")
+                .package(url: "https://github.com/moslienko/AppViewUtilits.git", from: "1.2.5")
             ],
             path: "Sources"
         ),
