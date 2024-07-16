@@ -1,5 +1,5 @@
 <p align="center">
-   <img width="200" src="https://raw.githubusercontent.com/SvenTiigi/SwiftKit/gh-pages/readMeAssets/SwiftKitLogo.png" alt="TableCellConfigurator Logo">
+   <img width="200" src="https://moslienko.github.io/Assets/TableCellConfigurator/sdk.png" alt="TableCellConfigurator Logo">
 </p>
 
 <p align="center">
@@ -14,10 +14,10 @@
 # TableCellConfigurator
 
 <p align="center">
-ℹ️ Library for quick and easy creation of UITableViewCell's in a platform-standard style
+Library for quick and easy creation of UITableViewCell's in a platform-standard style
 </p>
-<p float="center">
-<img src="https://i.imgur.com/THabAUO.png" width="30%">
+<p align="center">
+<img src="https://moslienko.github.io/Assets/TableCellConfigurator/screenshot.png" width="30%"></p>
 
 ## Features
 
