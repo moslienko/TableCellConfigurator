@@ -9,7 +9,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "TableCellConfigіurator",
+            name: "TableCellConfigurator",
             targets: ["TableCellConfigurator"]
         ),
     ],
@@ -20,7 +20,7 @@ let package = Package(
         .target(
             name: "TableCellConfigurator",
             dependencies: [
-                .package(url: "https://github.com/moslienko/AppViewUtilits.git", from: "1.2.5")
+                .product(name: "AppViewUtilits", package: "AppViewUtilits")
             ],
             path: "Sources"
         ),
